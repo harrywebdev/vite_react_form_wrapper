@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState, MouseEvent} from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [formType, setFormType] = useState<"food" | "car">("food")
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleFormOnClick = (type: "food" | "car") => (event: MouseEvent) => {
+        event.preventDefault()
+        setFormType(type)
+    }
+
+    return (
+        <>
+            <h1>Form Wrapper</h1>
+            <div className={"formTabs"}>
+                <a onClick={handleFormOnClick("food")}>
+                    FoodForm
+                </a>
+                |
+                <a onClick={handleFormOnClick("car")}>
+                    CarForm
+                </a>
+            </div>
+            
+            <div className="card">
+                {formType}
+            </div>
+        </>
+    )
 }
 
 export default App
