@@ -30,7 +30,7 @@ const FieldsetWithAttachments: FC<FieldsetWithAttachmentsProps> = ({
                   )
                 }
               >
-                [ Odstranit ]
+                Odstranit
               </button>
             </li>
           ))}

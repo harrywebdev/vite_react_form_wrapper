@@ -21,14 +21,17 @@ const FormCar: FC<FormCarProps> = ({ children, onSubmit }) => {
     carType: "",
   });
   const [isValid, setIsValid] = useState<boolean>(true);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   useEffect(() => {
     setIsValid(FormCarSchema.safeParse(data).success);
   }, [data]);
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    onSubmit(data);
+    setIsSubmitting(true);
+    await onSubmit(data);
+    setIsSubmitting(false);
   };
 
   return (
@@ -87,8 +90,8 @@ const FormCar: FC<FormCarProps> = ({ children, onSubmit }) => {
 
       {children}
 
-      <button type="submit" disabled={!isValid}>
-        Odeslat
+      <button type="submit" disabled={!isValid || isSubmitting}>
+        {isSubmitting ? "Odesilam..." : "Odeslat"}
       </button>
     </form>
   );
