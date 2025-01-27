@@ -1,5 +1,7 @@
 import {useState, MouseEvent} from 'react'
 import './App.css'
+import FormFood from "./components/FormFood.tsx";
+import FormCar from "./components/FormCar.tsx";
 
 function App() {
     const [formType, setFormType] = useState<"food" | "car">("food")
@@ -21,9 +23,9 @@ function App() {
                     CarForm
                 </a>
             </div>
-            
+
             <div className="card">
-                {formType}
+                {formType === "food" ? (<FormFood/>) : <FormCar/>}
             </div>
         </>
     )

@@ -14,3 +14,20 @@
     justify-content: center;
     gap: 10px;
 }
+
+label {
+    display: block;
+    min-width: 150px;
+    text-align: right;
+}
+
+fieldset p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+button {
+    margin-top: 1em;
+}
