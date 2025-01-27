@@ -1,7 +1,7 @@
-import { FC, FormEvent, useEffect, useState } from "react";
+import { FC, FormEvent, PropsWithChildren, useEffect, useState } from "react";
 import { z } from "zod";
 
-type FormFoodProps = {
+type FormFoodProps = PropsWithChildren & {
   onSubmit: (data: FormFoodSchema) => Promise<void>;
 };
 
@@ -14,7 +14,7 @@ export const FormFoodSchema = z.object({
 });
 export type FormFoodSchema = z.infer<typeof FormFoodSchema>;
 
-const FormFood: FC<FormFoodProps> = ({ onSubmit }) => {
+const FormFood: FC<FormFoodProps> = ({ children, onSubmit }) => {
   const [data, setData] = useState<FormFoodSchema>({
     fullName: "",
     email: "",
@@ -97,6 +97,8 @@ const FormFood: FC<FormFoodProps> = ({ onSubmit }) => {
           />
         </p>
       </fieldset>
+
+      {children}
 
       <button type="submit" disabled={!isValid}>
         Odeslat

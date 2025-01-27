@@ -27,7 +27,9 @@ function App() {
 
       {formType === "food" ? (
         <FormWithAttachments<FormFoodSchema> hasAttachments>
-          {(onSubmit) => <FormFood onSubmit={onSubmit} />}
+          {(onSubmit, attachmentsFieldset) => (
+            <FormFood onSubmit={onSubmit}>{attachmentsFieldset}</FormFood>
+          )}
         </FormWithAttachments>
       ) : null}
 

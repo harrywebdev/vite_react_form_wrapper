@@ -1,7 +1,7 @@
-import { FC, FormEvent, useEffect, useState } from "react";
+import { FC, FormEvent, PropsWithChildren, useEffect, useState } from "react";
 import { z } from "zod";
 
-type FormCarProps = {
+type FormCarProps = PropsWithChildren & {
   onSubmit: (data: FormCarSchema) => Promise<void>;
 };
 
@@ -13,7 +13,7 @@ export const FormCarSchema = z.object({
 });
 export type FormCarSchema = z.infer<typeof FormCarSchema>;
 
-const FormCar: FC<FormCarProps> = ({ onSubmit }) => {
+const FormCar: FC<FormCarProps> = ({ children, onSubmit }) => {
   const [data, setData] = useState<FormCarSchema>({
     fullName: "",
     email: "",
@@ -84,6 +84,8 @@ const FormCar: FC<FormCarProps> = ({ onSubmit }) => {
           />
         </p>
       </fieldset>
+
+      {children}
 
       <button type="submit" disabled={!isValid}>
         Odeslat
