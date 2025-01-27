@@ -16,8 +16,13 @@ function App() {
     <>
       <h1>Form Wrapper</h1>
       <div className={"formTabs"}>
-        <a onClick={handleFormOnClick("food")}>FoodForm</a>|
-        <a onClick={handleFormOnClick("car")}>CarForm</a>
+        <a href={"#food"} onClick={handleFormOnClick("food")}>
+          FoodForm
+        </a>
+        |
+        <a href={"#car"} onClick={handleFormOnClick("car")}>
+          CarForm
+        </a>
       </div>
 
       {formType === "food" ? (

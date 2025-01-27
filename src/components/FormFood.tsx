@@ -15,7 +15,13 @@ export const FormFoodSchema = z.object({
 export type FormFoodSchema = z.infer<typeof FormFoodSchema>;
 
 const FormFood: FC<FormFoodProps> = ({ onSubmit }) => {
-  const [data, setData] = useState<FormFoodSchema>(FormFoodSchema.parse({}));
+  const [data, setData] = useState<FormFoodSchema>({
+    fullName: "",
+    email: "",
+    food: "",
+    foodType: "",
+    foodPrice: "",
+  });
   const [isValid, setIsValid] = useState<boolean>(true);
 
   useEffect(() => {

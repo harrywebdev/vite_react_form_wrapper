@@ -14,7 +14,12 @@ export const FormCarSchema = z.object({
 export type FormCarSchema = z.infer<typeof FormCarSchema>;
 
 const FormCar: FC<FormCarProps> = ({ onSubmit }) => {
-  const [data, setData] = useState<FormCarSchema>(FormCarSchema.parse({}));
+  const [data, setData] = useState<FormCarSchema>({
+    fullName: "",
+    email: "",
+    car: "",
+    carType: "",
+  });
   const [isValid, setIsValid] = useState<boolean>(true);
 
   useEffect(() => {
