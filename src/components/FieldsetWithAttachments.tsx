@@ -1,10 +1,10 @@
 import {FC, useState} from 'react'
 
-type FormWithAttachmentsProps = {
+type FieldsetWithAttachmentsProps = {
     //
 }
 
-const FormWithAttachments: FC<FormWithAttachmentsProps> = () => {
+const FieldsetWithAttachments: FC<FieldsetWithAttachmentsProps> = () => {
     const [attachments, setAttachments] = useState<File[]>([])
 
     return <fieldset>
@@ -36,4 +36,4 @@ const FormWithAttachments: FC<FormWithAttachmentsProps> = () => {
     </fieldset>
 }
 
-export default FormWithAttachments
+export default FieldsetWithAttachments
