@@ -31,3 +31,9 @@ fieldset p {
 button {
     margin-top: 1em;
 }
+
+.item-attachment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
