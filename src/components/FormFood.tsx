@@ -1,9 +1,7 @@
 import {FC} from 'react'
 import {z} from "zod";
 
-type FormFoodProps = {
-    //
-}
+type FormFoodProps = unknown
 
 export const FormFoodSchema = z.object({
     fullName: z.string(),

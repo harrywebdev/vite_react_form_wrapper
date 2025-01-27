@@ -1,9 +1,7 @@
 import {FC} from 'react'
 import {z} from "zod";
 
-type FormCarProps = {
-    //
-}
+type FormCarProps = unknown
 
 export const FormCarSchema = z.object({
     fullName: z.string(),

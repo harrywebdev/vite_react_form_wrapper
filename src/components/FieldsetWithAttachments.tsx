@@ -1,11 +1,13 @@
 import {FC, useState} from 'react'
+import {z} from "zod";
 
-type FieldsetWithAttachmentsProps = {
-    //
-}
+type FieldsetWithAttachmentsProps = unknown
+
+export const AttachmentsSchema = z.array(z.instanceof(File))
+export type AttachmentsSchema = z.infer<typeof AttachmentsSchema>
 
 const FieldsetWithAttachments: FC<FieldsetWithAttachmentsProps> = () => {
-    const [attachments, setAttachments] = useState<File[]>([])
+    const [attachments, setAttachments] = useState<AttachmentsSchema>([])
 
     return <fieldset>
         <legend>Prilohy</legend>
