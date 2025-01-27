@@ -1,8 +1,18 @@
 import {FC} from 'react'
+import {z} from "zod";
 
 type FormFoodProps = {
     //
 }
+
+export const FormFoodSchema = z.object({
+    fullName: z.string(),
+    email: z.string().email(),
+    food: z.string(),
+    foodType: z.string(),
+    foodPrice: z.string(),
+})
+export type FormFoodSchema = z.infer<typeof FormFoodSchema>
 
 const FormFood: FC<FormFoodProps> = () => {
     return <form>

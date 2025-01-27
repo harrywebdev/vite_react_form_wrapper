@@ -1,8 +1,17 @@
 import {FC} from 'react'
+import {z} from "zod";
 
 type FormCarProps = {
     //
 }
+
+export const FormCarSchema = z.object({
+    fullName: z.string(),
+    email: z.string().email(),
+    car: z.string(),
+    carType: z.string(),
+})
+export type FormCarSchema = z.infer<typeof FormCarSchema>
 
 const FormCar: FC<FormCarProps> = () => {
     return <form>
